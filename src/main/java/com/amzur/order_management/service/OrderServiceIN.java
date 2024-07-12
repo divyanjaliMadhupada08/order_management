@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.amzur.order_management.dto.request.OrderRequest;
@@ -15,9 +16,9 @@ import com.amzur.order_management.repository.LineItemRepository;
 import com.amzur.order_management.repository.OrderRepository;
 
 
-
+@Profile("in")
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceIN implements OrderService{
 	@Autowired
     private OrderRepository orderRepository;
     @Autowired
