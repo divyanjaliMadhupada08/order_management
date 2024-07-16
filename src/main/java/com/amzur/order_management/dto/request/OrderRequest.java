@@ -1,5 +1,6 @@
 package com.amzur.order_management.dto.request;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import jakarta.validation.constraints.NotNull;
@@ -7,7 +8,7 @@ import jakarta.validation.constraints.NotNull;
 public class OrderRequest {
 	 @NotNull
 	    private Long userId;
-	    @NotNull
+	 @NotNull
 	    private List<Integer> bookIds;
 		
 	    
@@ -23,6 +24,5 @@ public class OrderRequest {
 		public void setBookIds(List<Integer> bookIds) {
 			this.bookIds = bookIds;
 		}
-	    
-	    
+
 }

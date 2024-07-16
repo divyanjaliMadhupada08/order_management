@@ -1,26 +1,25 @@
 package com.amzur.order_management.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+
+import java.time.LocalDate;
 
 @Data
 @Entity
 @Table(name ="ORDERS")
 public class OrderEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ORDER_ID")
-    private Long orderId;
+    private Long id;
+
     @Column(name = "USER_ID")
     private Long userId;
-	
-    
-    
-    
+
+
+
+
 }
 

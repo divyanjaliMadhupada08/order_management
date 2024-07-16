@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.amzur.order_management.dto.request.OrderRequest;
@@ -15,7 +16,7 @@ import com.amzur.order_management.repository.LineItemRepository;
 import com.amzur.order_management.repository.OrderRepository;
 
 
-
+@Profile("in")
 @Service
 public class OrderServiceImpl implements OrderService{
 	@Autowired
@@ -29,7 +30,7 @@ OrderEntity orderEntity = new OrderEntity();
 		orderEntity.setUserId(orderRequest.getUserId());
 		BeanUtils.copyProperties(orderRequest, orderEntity);
 		orderEntity = orderRepository.save(orderEntity);
-		final Long orderId = orderEntity.getOrderId();
+		final Long orderId = orderEntity.getId();
 		orderRequest.getBookIds().stream()
 	    .map(bookId -> {
 	        LineItemEntity lineItem = new LineItemEntity();
